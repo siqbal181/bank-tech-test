@@ -28,4 +28,10 @@ describe('Bank', () => {
     bank.withdraw(1000, '10/01/2023');
     expect(bank.printBalance()).toEqual([{"balance": 2000, "credit": 2000, "date": "10/01/2023"}, {"balance": 4000, "credit": 2000, "date": "10/01/2023"}, {"balance": 3000, "debit": 1000, "date": "10/01/2023"}]);
   })
+
+  test.only('it prints out a statement', () => {
+    bank.deposit(2000, '10/01/2023');
+    bank.withdraw(1000, '10/01/2023');
+    expect(bank.statement()).toEqual("date || credit || debit || balance\n10/01/2023 || 2000 ||  || 2000\n10/01/2023 ||  || 1000 || 1000");
+  })
 })
