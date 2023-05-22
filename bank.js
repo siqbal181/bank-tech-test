@@ -1,10 +1,15 @@
 class Bank {
   constructor() {
     this.balance = 0;
+    this.total = [];
   }
 
-  deposit(amount) {
+  deposit(amount, date) {
     this.balance += amount;
+    let object = {};
+    object[date] = amount;
+    this.total.push(object)
+    console.log(this.total);
   }
 
   withdraw(amount) {
@@ -12,7 +17,7 @@ class Bank {
   }
 
   printBalance() {
-    return this.balance;
+    return this.total;
   }
 
 }

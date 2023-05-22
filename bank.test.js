@@ -17,7 +17,6 @@ describe('Bank', () => {
   })
 
   it('returns a value of 20 when 10 and 10 is deposited', () => {
-    const bank = new Bank;
     bank.deposit(10);
     bank.deposit(10);
     expect(bank.printBalance()).toBe(20);
@@ -28,5 +27,16 @@ describe('Bank', () => {
     bank.deposit(10);
     bank.withdraw(10);
     expect(bank.printBalance()).toBe(10);
+  })
+
+  it('return a balance and date when the amount is deposited with date 14/01/2023', () => {
+    bank.deposit(1000, '14/01/2023');
+    expect(bank.printBalance()).toEqual([{"14/01/2023": 1000}]);
+  })
+
+  test.only('returns balance and date when 1000 deposited on 10/01/2023 and 2000 on 13/01/2023', () => {
+    bank.deposit(1000, '10/01/2023');
+    bank.deposit(2000, '13/01/2023');
+    expect(bank.printBalance()).toEqual([{"10/01/2023": 1000}, {"13/01/2023": 2000}]);
   })
 })
