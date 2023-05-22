@@ -34,4 +34,9 @@ describe('Bank', () => {
     bank.withdraw(1000, '10/01/2023');
     expect(bank.statement()).toEqual("date || credit || debit || balance\n10/01/2023 || 2000 ||  || 2000\n10/01/2023 ||  || 1000 || 1000");
   })
+
+  test('it fails if 1000 is withdrawn when balance is only 500', () => {
+    bank.deposit(500, '10/01/2023');
+    expect(() => bank.withdraw(1000, '10/01/2023')).toThrow(new Error('Insufficient funds.'));
+  });  
 })

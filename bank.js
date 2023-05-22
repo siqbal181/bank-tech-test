@@ -14,6 +14,9 @@ class Bank {
   }
 
   withdraw(amount, date) {
+    if (this.balance < amount) {
+      throw new Error('Insufficient funds.')
+    }
     const object = {
       date,
       debit: amount,
