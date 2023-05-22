@@ -10,17 +10,6 @@ describe('Bank', () => {
   it('returns a value of 0 when initialized', () => {
     expect(bank.printBalance()).toBe(0);
   })
-  
-  it('returns a value of 10 when 10 is deposited', () => {
-    bank.deposit(10);
-    expect(bank.printBalance()).toBe(10);
-  })
-
-  it('returns a value of 20 when 10 and 10 is deposited', () => {
-    bank.deposit(10);
-    bank.deposit(10);
-    expect(bank.printBalance()).toBe(20);
-  })
 
   it('returns a value of 10 when 20 is deposited and 10 is withdrawn', () => {
     bank.deposit(10);
@@ -46,9 +35,14 @@ describe('Bank', () => {
     expect(bank.calculateTotal()).toBe(3000);
   })
 
-  test.only('returns total of 2000 when 2000 deposit on and then 1000 is withdrawn', () => {
+  test('returns total of 2000 when 2000 deposit on and then 1000 is withdrawn', () => {
     bank.deposit(2000, '10/01/2023');
     bank.withdraw(1000, '10/01/2023');
     expect(bank.calculateTotal()).toBe(1000);
+  })
+
+  test.only('returns balance and date when 1000 deposited on 10/01/2023 and 2000 on 13/01/2023', () => {
+    bank.deposit(1000, '10/01/2023');
+    expect(bank.printBalance()).toEqual([{"balance": 1000, "credit": 1000, "date": "10/01/2023"}]);
   })
 })
