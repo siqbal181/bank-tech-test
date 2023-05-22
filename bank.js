@@ -5,15 +5,17 @@ class Bank {
   }
 
   deposit(amount, date) {
-    this.balance += amount;
     let object = {};
-    object.date = date
-    object.debit = amount;
-    this.total.push(object)
+    object.date = date;
+    object.credit = amount;
+    this.total.push(object);
   }
 
-  withdraw(amount) {
-    this.balance -= amount;
+  withdraw(amount, date) {
+    let object = {};
+    object.date = date;
+    object.debit = amount;
+    this.total.push(object);
   }
 
   printBalance() {
@@ -21,12 +23,15 @@ class Bank {
   }
 
   calculateTotal() {
-    const total = this.total
-      .map(item => item.debit)
-      .reduce((prev, current) => prev + current, 0);
-    return total;
+    this.total.forEach((object) => {
+      if (object.hasOwnProperty('credit')) {
+        this.balance += object.credit;
+      } else if (object.hasOwnProperty('debit')) {
+        this.balance -= object.debit;
+      }
+    });
+    return this.balance;
   }
-
 }
 
 module.exports = Bank;
