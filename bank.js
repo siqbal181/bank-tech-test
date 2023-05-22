@@ -2,7 +2,6 @@ class Bank {
   constructor() {
     this.balance = 0;
     this.total = [];
-    this.statement = [];
   }
 
   deposit(amount, date) {
