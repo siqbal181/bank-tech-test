@@ -5,10 +5,11 @@ class Bank {
   }
 
   deposit(amount, date) {
-    let object = {};
-    object.date = date;
-    object.credit = amount;
-    object.balance = this.balance += amount;
+    const object = {
+      date,
+      credit: amount,
+      balance: this.balance += amount
+    };
     this.total.push(object);
   }
 
