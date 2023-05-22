@@ -7,9 +7,9 @@ class Bank {
   deposit(amount, date) {
     this.balance += amount;
     let object = {};
-    object[date] = amount;
+    object.date = date
+    object.debit = amount;
     this.total.push(object)
-    console.log(this.total);
   }
 
   withdraw(amount) {
@@ -18,6 +18,13 @@ class Bank {
 
   printBalance() {
     return this.total;
+  }
+
+  calculateTotal() {
+    const total = this.total
+      .map(item => item.debit)
+      .reduce((prev, current) => prev + current, 0);
+    return total;
   }
 
 }

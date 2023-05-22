@@ -34,9 +34,15 @@ describe('Bank', () => {
     expect(bank.printBalance()).toEqual([{"14/01/2023": 1000}]);
   })
 
-  test.only('returns balance and date when 1000 deposited on 10/01/2023 and 2000 on 13/01/2023', () => {
+  test('returns balance and date when 1000 deposited on 10/01/2023 and 2000 on 13/01/2023', () => {
     bank.deposit(1000, '10/01/2023');
     bank.deposit(2000, '13/01/2023');
     expect(bank.printBalance()).toEqual([{"10/01/2023": 1000}, {"13/01/2023": 2000}]);
+  })
+
+  test.only('returns total of 3000 when 1000 and then 2000 is deposited on 10/01/2023', () => {
+    bank.deposit(1000, '10/01/2023');
+    bank.deposit(2000, '10/01/2023');
+    expect(bank.calculateTotal()).toBe(3000);
   })
 })
