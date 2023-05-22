@@ -14,10 +14,11 @@ class Bank {
   }
 
   withdraw(amount, date) {
-    let object = {};
-    object.date = date;
-    object.debit = amount;
-    object.balance = this.balance -= amount;
+    const object = {
+      date,
+      debit: amount,
+      balance: this.balance -= amount
+    };
     this.total.push(object);
   }
 
