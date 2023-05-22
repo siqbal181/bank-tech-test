@@ -22,7 +22,7 @@ _Include the initializer and public methods with all parameters and return value
 
 class Bank {
   constructor() {
-    balance = 0;
+    let balance = 0;
   }
 
   deposit(amount) {
