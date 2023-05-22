@@ -55,7 +55,6 @@ describe('Bank', () => {
 
 // Returns an amount of 10 when 10 is deposited
   it('returns a value of 10 when 10 is deposited', () => {
-    const bank = new Bank;
     bank.deposit(10);
     expect(bank.printBalance()).toBe(10);
   })
@@ -63,10 +62,17 @@ describe('Bank', () => {
 // Returns an amount of 20 when 10 and 10 is deposited
 
   it('returns a value of 20 when 10 and 10 is deposited', () => {
-    const bank = new Bank;
     bank.deposit(10);
     bank.deposit(10);
     expect(bank.printBalance()).toBe(20);
+  })
+
+// Returns an amount of 10 when 20 is added and 10 is withdrawn
+  it('returns a value of 10 when 20 is deposited and 10 is withdrawn', () => {
+    bank.deposit(10);
+    bank.deposit(10);
+    bank.withdraw(10);
+    expect(bank.printBalance()).toBe(10);
   })
 
 ```

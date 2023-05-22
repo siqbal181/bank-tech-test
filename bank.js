@@ -7,6 +7,10 @@ class Bank {
     this.balance += amount;
   }
 
+  withdraw(amount) {
+    this.balance -= amount;
+  }
+
   printBalance() {
     return this.balance;
   }

@@ -1,7 +1,7 @@
 const Bank = require('./bank');
 
 describe('Bank', () => {
-  let bank ; 
+  let bank; 
 
   beforeEach(() => {
     bank = new Bank();
@@ -21,5 +21,12 @@ describe('Bank', () => {
     bank.deposit(10);
     bank.deposit(10);
     expect(bank.printBalance()).toBe(20);
+  })
+
+  it('returns a value of 10 when 20 is deposited and 10 is withdrawn', () => {
+    bank.deposit(10);
+    bank.deposit(10);
+    bank.withdraw(10);
+    expect(bank.printBalance()).toBe(10);
   })
 })
