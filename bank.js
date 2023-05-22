@@ -24,21 +24,6 @@ class Bank {
   printBalance() {
     return this.total;
   }
-
-  calculateTotal() {
-    this.total.forEach((object) => {
-      if (object.hasOwnProperty('credit')) {
-        this.balance += object.credit;
-        this.statement.push(object, this.balance);
-        console.log(this.statement);
-      } else if (object.hasOwnProperty('debit')) {
-        this.balance -= object.debit;
-        this.statement.push(object, this.balance);
-        console.log(this.statement);
-      }
-    });
-    return this.balance;
-  }
 }
 
 module.exports = Bank;
