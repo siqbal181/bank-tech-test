@@ -31,13 +31,13 @@ class Bank {
 
   statement() {
     const header = 'date || credit || debit || balance'
-    const formatLines = this.total.map((item) => {
+    const formatTotal = this.total.map((item) => {
       const credit = item.credit !== undefined ? item.credit : '';
       const debit = item.debit !== undefined ? item.debit : '';
       return `${item.date} || ${credit} || ${debit} || ${item.balance}`
     })
-    const output = [header, ...formatLines].join('\n');
-    return output;
+    const statementOutput = [header, ...formatTotal].join('\n');
+    return statementOutput;
   }
 }
 
