@@ -54,4 +54,11 @@ describe('Bank', () => {
     bank.deposit(2000.00, '13/01/2023');
     expect(bank.statement()).toEqual("date || credit || debit || balance\n10/01/2023 || 1000.00 ||  || 1000.00\n13/01/2023 || 2000.00 ||  || 3000.00");
   });
+
+  test('deposit 1000, 2000 on different dates and withdraw 500 and print statement', () => {
+    bank.deposit(1000.00, '10/01/2023');
+    bank.deposit(2000.00, '13/01/2023');
+    bank.withdraw(500.00, '14/01/2023');
+    expect(bank.statement()).toEqual("date || credit || debit || balance\n10/01/2023 || 1000.00 ||  || 1000.00\n13/01/2023 || 2000.00 ||  || 3000.00\n14/01/2023 ||  || 500.00 || 2500.00");
+  });
 })
