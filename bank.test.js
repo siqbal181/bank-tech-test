@@ -38,5 +38,16 @@ describe('Bank', () => {
   test('it fails if 1000 is withdrawn when balance is only 500', () => {
     bank.deposit(500, '10/01/2023');
     expect(() => bank.withdraw(1000, '10/01/2023')).toThrow(new Error('Insufficient funds.'));
-  });  
+  });
+
+  test('it reduces the balance to 99.99 when 0.01 is withdrawn', () => {
+    bank.deposit(100, '10/01/2023');
+    bank.withdraw(0.01, '10/01/2023');
+    expect(bank.statement()).toEqual("date || credit || debit || balance\n10/01/2023 || 100 ||  || 100\n10/01/2023 ||  || 0.01 || 99.99");
+  })
+
+  test('it adds a float balance of 120.50 when deposited', () => {
+    bank.deposit(120.50, '10/01/2023');
+    expect(bank.statement()).toEqual("date || credit || debit || balance\n10/01/2023 || 120.5 ||  || 120.5");
+  })
 })
