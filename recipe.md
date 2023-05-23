@@ -89,16 +89,16 @@ _Make a list of examples of how the class will behave in different situations._
   // })
 
   // Date error handling
-  test('it calls error when the date is incorrect', () => {
-    bank.deposit(100, '100/01/2023');
-    expect(bank.statement()).toThrow(new Error('Incorrect date format, enter format DD/MM/YYYY'));
-  })
+  // test('it calls error when the date is incorrect', () => {
+  //   bank.deposit(100, '100/01/2023');
+  //   expect(bank.statement()).toThrow(new Error('Incorrect date format, enter format DD/MM/YYYY'));
+  // })
 
-    // Date error handling
-  test('it throws error with dashes as dates', () => {
-    bank.deposit(100, '10-01-2023');
-    expect(bank.statement()).toThrow(new Error('Incorrect date format, enter format DD/MM/YYYY'));
-  })
+  //   // Date error handling
+  // test('it throws error with dashes as dates', () => {
+  //   bank.deposit(100, '10-01-2023');
+  //   expect(bank.statement()).toThrow(new Error('Incorrect date format, enter format DD/MM/YYYY'));
+  // })
 
 
 

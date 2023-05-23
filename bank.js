@@ -8,10 +8,12 @@ class Bank {
 
   deposit(amount, date) {
     this.dateChecker(date);
+    const credit = (Math.round(amount * 100) / 100).toFixed(2);
+    const balance = (this.balance += Math.round(amount * 100) / 100);
     const object = {
       date,
-      credit: amount,
-      balance: this.balance += amount
+      credit,
+      balance: balance.toFixed(2)
     };
     this.total.push(object);
   }
@@ -27,10 +29,6 @@ class Bank {
       balance: this.balance -= amount
     };
     this.total.push(object);
-  }
-
-  printBalance() {
-    return this.total;
   }
 
   dateChecker(date) {
