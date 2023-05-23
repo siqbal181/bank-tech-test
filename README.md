@@ -30,3 +30,13 @@ date || credit || debit || balance
 * Run `jest` for tests
 * Run `npx eslint bank.js` for code quality checks
 
+## Approach
+
+* I began with testing a simpler version of the banking app, which only deposited and withdrew amounts without any date addition.
+* Once I was confident in these tests, I then expanded to introduce dates 
+* I needed to navigate running balance of the transactions, which was done using the statement method
+* I segemented some supporting methods (such as date validation and amount formatter for 2DP amounts)
+
+
+
+
