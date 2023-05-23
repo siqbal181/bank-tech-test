@@ -33,7 +33,6 @@ class Bank {
 
   dateChecker(date) {
     const formattedDate = moment(date, 'DD/MM/YYYY', true);
-
     if (formattedDate.isValid()) {
       return date
     } else {

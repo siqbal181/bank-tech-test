@@ -52,6 +52,6 @@ describe('Bank', () => {
   })
 
   test.only('date checker method returns error with 30th February entered', () => {
-    expect(bank.dateChecker('28/02/2023')).toThrow(new Error('Enter correct date input with format DD/MM/YYYY'));
-  })
+    expect(() => bank.dateChecker('30/02/2023')).toThrow('Enter correct date input with format DD/MM/YYYY');
+  });
 })
