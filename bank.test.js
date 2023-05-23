@@ -50,4 +50,8 @@ describe('Bank', () => {
     bank.deposit(120.50, '10/01/2023');
     expect(bank.statement()).toEqual("date || credit || debit || balance\n10/01/2023 || 120.5 ||  || 120.5");
   })
+
+  test.only('date checker method returns error with 30th February entered', () => {
+    expect(bank.dateChecker('28/02/2023')).toThrow(new Error('Enter correct date input with format DD/MM/YYYY'));
+  })
 })

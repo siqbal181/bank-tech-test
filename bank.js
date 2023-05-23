@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 class Bank {
   constructor() {
     this.balance = 0;
@@ -27,6 +29,16 @@ class Bank {
 
   printBalance() {
     return this.total;
+  }
+
+  dateChecker(date) {
+    const formattedDate = moment(date, 'DD/MM/YYYY', true);
+
+    if (formattedDate.isValid()) {
+      return date
+    } else {
+      throw new Error('Enter correct date input with format DD/MM/YYYY')
+    }
   }
 
   statement() {

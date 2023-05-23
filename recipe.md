@@ -82,11 +82,11 @@ _Make a list of examples of how the class will behave in different situations._
   //   expect(bank.statement()).toEqual("date || credit || debit || balance\n10/01/2023 || 100 ||  || 100\n10/01/2023 ||  || 0.01 || 99.99");
   // })
 
-  // Float numbers returns
-  test('it adds a float balance of 120.50 when deposited', () => {
-    bank.deposit(120.50, '10/01/2023');
-    expect(bank.statement()).toEqual("date || credit || debit || balance\n10/01/2023 || 120.5 ||  || 120.5");
-  })
+  // // Float numbers returns
+  // test('it adds a float balance of 120.50 when deposited', () => {
+  //   bank.deposit(120.50, '10/01/2023');
+  //   expect(bank.statement()).toEqual("date || credit || debit || balance\n10/01/2023 || 120.5 ||  || 120.5");
+  // })
 
   // Date error handling
   test('it calls error when the date is incorrect', () => {
