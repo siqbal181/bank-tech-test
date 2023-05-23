@@ -62,4 +62,12 @@ describe('Bank', () => {
   test('withdraw method returns error with 30th February entered as incorrect date', () => {
     expect(() => bank.withdraw(100, '30/02/2023')).toThrow('Enter correct date input with format DD/MM/YYYY');
   });
+
+  test('deposit method returns error with incorrect date', () => {
+    expect(() => bank.deposit(100, '300/02/2023')).toThrow('Enter correct date input with format DD/MM/YYYY');
+  });
+
+  test('deposit method returns error with incorrect date format', () => {
+    expect(() => bank.deposit(100, '20-02-2023')).toThrow('Enter correct date input with format DD/MM/YYYY');
+  });
 })
