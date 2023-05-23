@@ -23,10 +23,12 @@ class Bank {
     if (this.balance < amount) {
       throw new Error('Insufficient funds.')
     }
+    const debit = (Math.round(amount * 100) / 100).toFixed(2);
+    const balance = (this.balance -= Math.round(amount * 100) / 100);
     const object = {
       date,
-      debit: amount,
-      balance: this.balance -= amount
+      debit,
+      balance: balance.toFixed(2)
     };
     this.total.push(object);
   }

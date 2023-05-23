@@ -8,9 +8,9 @@ describe('Bank', () => {
   })
 
   test('it prints out a statement', () => {
-    bank.deposit(2000, '10/01/2023');
-    bank.withdraw(1000, '10/01/2023');
-    expect(bank.statement()).toEqual("date || credit || debit || balance\n10/01/2023 || 2000 ||  || 2000\n10/01/2023 ||  || 1000 || 1000");
+    bank.deposit(2000.00, '10/01/2023');
+    bank.withdraw(1000.00, '10/01/2023');
+    expect(bank.statement()).toEqual("date || credit || debit || balance\n10/01/2023 || 2000.00 ||  || 2000.00\n10/01/2023 ||  || 1000.00 || 1000.00");
   })
 
   test('it fails if 1000 is withdrawn when balance is only 500', () => {
@@ -19,14 +19,14 @@ describe('Bank', () => {
   });
 
   test('it reduces the balance to 99.99 when 0.01 is withdrawn', () => {
-    bank.deposit(100, '10/01/2023');
+    bank.deposit(100.00, '10/01/2023');
     bank.withdraw(0.01, '10/01/2023');
-    expect(bank.statement()).toEqual("date || credit || debit || balance\n10/01/2023 || 100 ||  || 100\n10/01/2023 ||  || 0.01 || 99.99");
+    expect(bank.statement()).toEqual("date || credit || debit || balance\n10/01/2023 || 100.00 ||  || 100.00\n10/01/2023 ||  || 0.01 || 99.99");
   })
 
   test('it adds a float balance of 120.50 when deposited', () => {
     bank.deposit(120.50, '10/01/2023');
-    expect(bank.statement()).toEqual("date || credit || debit || balance\n10/01/2023 || 120.5 ||  || 120.5");
+    expect(bank.statement()).toEqual("date || credit || debit || balance\n10/01/2023 || 120.50 ||  || 120.50");
   })
 
   test('date checker method returns error with 30th February entered', () => {
