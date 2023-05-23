@@ -9,13 +9,8 @@ class Bank {
   deposit(amount, date) {
     this.dateChecker(date);
     const credit = this.formatAmount(amount);
-    const balance = (this.balance += Math.round(amount * 100) / 100);
-    const object = {
-      date,
-      credit,
-      balance: balance.toFixed(2)
-    };
-    this.total.push(object);
+    const balance = this.balance += amount;
+    this.total.push({ date, credit, balance: balance.toFixed(2) });
   }
 
   withdraw(amount, date) {
@@ -24,13 +19,8 @@ class Bank {
       throw new Error('Insufficient funds.')
     }
     const debit = this.formatAmount(amount);
-    const balance = (this.balance -= Math.round(amount * 100) / 100);
-    const object = {
-      date,
-      debit,
-      balance: balance.toFixed(2)
-    };
-    this.total.push(object);
+    const balance = this.balance -= amount;
+    this.total.push({ date, debit, balance: balance.toFixed(2) });
   }
 
   formatAmount(amount) {
