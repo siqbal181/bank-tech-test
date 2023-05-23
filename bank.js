@@ -7,6 +7,7 @@ class Bank {
   }
 
   deposit(amount, date) {
+    this.dateChecker(date);
     const object = {
       date,
       credit: amount,
@@ -16,6 +17,7 @@ class Bank {
   }
 
   withdraw(amount, date) {
+    this.dateChecker(date);
     if (this.balance < amount) {
       throw new Error('Insufficient funds.')
     }

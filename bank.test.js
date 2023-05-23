@@ -51,7 +51,15 @@ describe('Bank', () => {
     expect(bank.statement()).toEqual("date || credit || debit || balance\n10/01/2023 || 120.5 ||  || 120.5");
   })
 
-  test.only('date checker method returns error with 30th February entered', () => {
+  test('date checker method returns error with 30th February entered', () => {
     expect(() => bank.dateChecker('30/02/2023')).toThrow('Enter correct date input with format DD/MM/YYYY');
+  });
+
+  test('deposit method returns error with 30th February entered as incorrect date', () => {
+    expect(() => bank.deposit(100, '30/02/2023')).toThrow('Enter correct date input with format DD/MM/YYYY');
+  });
+
+  test('withdraw method returns error with 30th February entered as incorrect date', () => {
+    expect(() => bank.withdraw(100, '30/02/2023')).toThrow('Enter correct date input with format DD/MM/YYYY');
   });
 })
